@@ -1,3 +1,6 @@
+module.exports = {
+  endpoint: 'https://api.magicthegathering.io/v1'
+}
 const pokemonName = document.querySelector('.pokemon__name');
 const pokemonNumber = document.querySelector('.pokemon__number');
 const pokemonImage = document.querySelector('.pokemon__image');
@@ -27,6 +30,17 @@ const renderPokemon = async (pokemon) => {
   pokemonNumber.innerHTML = '';
 
   const data = await fetchPokemon(pokemon);
+  const mtg = require('mtgsdk');
+
+mtg.card.find(3)
+.then(result => {
+    console.log(result.card.name) // "Black Lotus"
+})
+
+mtg.set.find('AER')
+.then(result => {
+    console.log(result.set.name) // "Aether Revolt"
+})
 
   if (data) {
     pokemonImage.style.display = 'block';
