@@ -17,14 +17,13 @@ const fetchMagic = async (mtg) =>{
   
   if (APIResponsemtg2.status === 200) {
     const data2 = await APIResponsemtg2.json();
-    console.log(data2);
+    return(data2);
   }
 }
 
 const fetchPokemon = async (pokemon) => {
   const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
 
-  
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
     return data;
@@ -37,7 +36,8 @@ const renderPokemon = async (pokemon) => {
   pokemonNumber.innerHTML = '';
 
   const data = await fetchPokemon(pokemon);
-
+  const data2 = await fetchMagic(mtg);
+  console.log(data2);
   if (data) {
     pokemonImage.style.display = 'block';
     pokemonName.innerHTML = data.name;
