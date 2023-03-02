@@ -10,7 +10,11 @@ const input = document.querySelector('.input__search');
 const buttonPrev = document.querySelector('.btn-prev');
 const buttonNext = document.querySelector('.btn-next');
 
-let searchPokemon = 1;
+  if (APIResponsemtg2.status === 200) {
+    const data = await APIResponsemtg2.json();
+    return(data);
+  }
+}
 
 const fetchPokemon = async (pokemon) => {
   const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
