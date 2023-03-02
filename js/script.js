@@ -14,9 +14,12 @@ let searchPokemon = 1;
 
 const fetchPokemon = async (pokemon) => {
   const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-  const APIResponsemtg2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+  const APIResponsemtg2 = await fetch(`https://api.magicthegathering.io/v1/cards/386615`);
   
-  
+  if (APIResponsemtg2.status === 200) {
+    const data2 = await APIResponse.json();
+    console.log(data2);
+  }
   
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
@@ -30,7 +33,6 @@ const renderPokemon = async (pokemon) => {
   pokemonNumber.innerHTML = '';
 
   const data = await fetchPokemon(pokemon);
-
 
   if (data) {
     pokemonImage.style.display = 'block';
