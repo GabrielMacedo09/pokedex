@@ -11,15 +11,19 @@ const buttonPrev = document.querySelector('.btn-prev');
 const buttonNext = document.querySelector('.btn-next');
 
 let searchPokemon = 1;
-
-const fetchPokemon = async (pokemon) => {
-  const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-  const APIResponsemtg2 = await fetch(`https://api.magicthegathering.io/v1/cards/386616`);
+let mtg=386616;
+const fetchMagic = async (mtg) =>{
+  const APIResponsemtg2 = await fetch(`https://api.magicthegathering.io/v1/cards/${mtg}`);
   
   if (APIResponsemtg2.status === 200) {
     const data2 = await APIResponsemtg2.json();
     console.log(data2);
   }
+}
+
+const fetchPokemon = async (pokemon) => {
+  const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+
   
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
