@@ -9,15 +9,10 @@ const form = document.querySelector('.form');
 const input = document.querySelector('.input__search');
 const buttonPrev = document.querySelector('.btn-prev');
 const buttonNext = document.querySelector('.btn-next');
-
-let searchPokemon = 1;
-let mtg=386616;
-const fetchMagic = async (mtg) =>{
-  const APIResponsemtg2 = await fetch(`https://api.magicthegathering.io/v1/cards/${mtg}`);
   
   if (APIResponsemtg2.status === 200) {
-    const data2 = await APIResponsemtg2.json();
-    return(data2);
+    const data = await APIResponsemtg2.json();
+    return(data);
   }
 }
 
@@ -36,8 +31,7 @@ const renderPokemon = async (pokemon) => {
   pokemonNumber.innerHTML = '';
 
   const data = await fetchPokemon(pokemon);
-  const data2 = await fetchMagic(mtg);
-  console.log(data2);
+  console.log(data);
   if (data) {
     pokemonImage.style.display = 'block';
     pokemonName.innerHTML = data.name;
