@@ -14,7 +14,7 @@ let searchPokemon = 1;
 
 const fetchPokemon = async (pokemon) => {
   const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-  const APIResponsemtg2 = await fetch(`https://api.magicthegathering.io/v1/cards/386615`);
+  const APIResponsemtg2 = await fetch(`https://api.magicthegathering.io/v1/cards/386616`);
   
   if (APIResponsemtg2.status === 200) {
     const data2 = await APIResponsemtg2.json();
